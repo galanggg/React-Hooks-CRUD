@@ -8,8 +8,9 @@ const AddUserForm = ({addUser}) => {
     const {name, value} = event.target
 
     setUser({...user, [name]: value})
-    // console.log(event)
+    console.log(event.target.value)
   }
+  console.log(user)
   return (
     <form onSubmit={event => {
       event.preventDefault()
