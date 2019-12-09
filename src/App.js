@@ -8,8 +8,8 @@ function App() {
   //inisialisasi state lokal, data default yang akan ditampilkan
   const userData = [
     {id: 1, name: 'Galang', username: 'LANG'},
-    {id: 1, name: 'Kerta', username: 'KERTA'},
-    {id: 1, name: 'Galanggg', username: 'LANGGG'}
+    {id: 2, name: 'Kerta', username: 'KERTA'},
+    {id: 3, name: 'Galanggg', username: 'LANGGG'}
   ]
 
   //set hooks, useState menggunakan variabel userData sebagai nilai
@@ -20,7 +20,11 @@ function App() {
 	const addUser = user => {
 		user.id = users.length + 1
 		setUsers([...users, user ])
-	}
+  }
+
+  const deleteUser = id => {
+    setUsers(users.filter(user => user.id !== id))
+  }
   return (
     <div className="container">
       <h1>Crud Menggunakan HOOKS</h1>
@@ -32,7 +36,7 @@ function App() {
         <div className="flex-large">
           <h2>View Users</h2>
           {/* setting props namanya users dan diisi nilai dari state users */}
-          <UserTable users={users}/>
+          <UserTable users={users} deleteUser={deleteUser}/>
         </div>
       </div>
     </div>
